@@ -42,7 +42,7 @@ ofxOpenNI::~ofxOpenNI(){
 //--------------------------------------------------------------
 bool ofxOpenNI::setup(){
     
-    openni::Status rc = OpenNI::initialize();
+    openni::_Status rc = OpenNI::initialize();
     if (rc != openni::STATUS_OK) {
         ofLogError() << "Failed to initialize OpenNI:" << OpenNI::getExtendedError();
         bUseDevice = false;
@@ -75,7 +75,7 @@ bool ofxOpenNI::addDepthStream(){
         return bUseDepth;
     }
     
-    openni::Status rc = depthStream.create(device, SENSOR_DEPTH);
+    openni::_Status rc = depthStream.create(device, SENSOR_DEPTH);
     
     if(rc != openni::STATUS_OK){
         
@@ -112,7 +112,7 @@ bool ofxOpenNI::addImageStream(){
         return bUseImage;
     }
     
-    openni::Status rc = imageStream.create(device, SENSOR_COLOR);
+    openni::_Status rc = imageStream.create(device, SENSOR_COLOR);
     
     if(rc != openni::STATUS_OK){
         
@@ -155,7 +155,7 @@ bool ofxOpenNI::addUserTracker(){
         bUseNite = true;
     }
     
-    nite::Status rc = userTracker.create(&device);
+    nite::_Status rc = userTracker.create(&device);
     
     if(rc != nite::STATUS_OK){
         
@@ -189,7 +189,7 @@ bool ofxOpenNI::addHandsTracker(){
         bUseNite = true;
     }
     
-    nite::Status rc = handTracker.create(&device);
+    nite::_Status rc = handTracker.create(&device);
     
     if(rc != nite::STATUS_OK){
         

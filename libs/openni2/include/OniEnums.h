@@ -35,7 +35,7 @@ typedef enum
 	STATUS_OUT_OF_FLOW = 5,
 	STATUS_NO_DEVICE = 6,
 	STATUS_TIME_OUT = 102,
-} Status;
+} _Status;
 
 /** The source of the stream */
 typedef enum
