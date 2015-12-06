@@ -29,9 +29,9 @@ common:
 	# include search paths, this will be usually parsed from the file system
 	# but if the addon or addon libraries need special search paths they can be
 	# specified here separated by spaces or one per line using +=
-	ADDON_INCLUDES = /home/brannondorsey/Documents/code/NiTE-Linux-x64-2.2/Include
-	ADDON_INCLUDES += /home/brannondorsey/Documents/code/OpenNI-Linux-x64-2.2/Include
-	
+	# ADDON_INCLUDES = /home/brannondorsey/Documents/code/of_v0.9.0_linux64_release/addons/ofxOpenNI/libs/openni2/include# /home/brannondorsey/Documents/code/NiTE-Linux-x64-2.2/Include
+	# ADDON_INCLUDES += /home/brannondorsey/Documents/code/of_v0.9.0_linux64_release/addons/ofxOpenNI/libs/nite2/lib/include# /home/brannondorsey/Documents/code/OpenNI-Linux-x64-2.2/Include
+	# ADDON_INCLUDES += src
 	# any special flag that should be passed to the compiler when using this
 	# addon
 	# ADDON_CFLAGS =
@@ -54,9 +54,7 @@ common:
     # ADDON_SOURCES = ../src/ofxOpenNI.cpp
     # ADDON_SOURCES += ../src/ofxOpenNI.h
     # ADDON_SOURCES += ../src/ofxOpenNITypes.h
-    # ADDON_SOURCES += ../src/ofxOpenNIUtils.h
-
-
+    # ADDON_SOURCES += ../src/ofxOpenNIUtils.h # ../../../addons/ofxOpenNI/src/ofxOpenNIUtils.h
 	
 	# some addons need resources to be copied to the bin/data folder of the project
 	# specify here any files that need to be copied, you can use wildcards like * and ?
@@ -90,9 +88,15 @@ linux64:
     # ADDON_INCLUDES_EXCLUDE += libs/libusb-win32/%
 	# ADDON_INCLUDES_EXCLUDE += libs/libusb-1.0/%
 	
-	ADDON_LDFLAGS = -L/home/brannondorsey/Documents/code/OpenNI-Linux-x64-2.2/Redist #/usr/lib
-	ADDON_LDFLAGS += -L/home/brannondorsey/Documents/code/NiTE-Linux-x64-2.2/Redist
-    ADDON_LDFLAGS += -lOpenNI2
-    ADDON_LDFLAGS += -lNiTE2
+	# path must be relative to project
+	# ADDON_LDFLAGS += -l:../../../addons/ofxOpenNI/libs/openni2/lib/linux64/libOpenNI2.so
+  	# ADDON_LDFLAGS += -l:../../../addons/ofxOpenNI/libs/nite2/lib/linux64/libNiTE2.so
+	ADDON_LDFLAGS = -Wl,-rpath=../../../../addons/ofxOpenNI/libs/openni2/lib/linux64
+	ADDON_LDFLAGS += -Wl,-rpath=../../../addons/ofxOpenNI/libs/openni2/lib/linux64
+ 	
+    # ADDON_LDFLAGS = -L../../../addons/ofxOpenNI/libs/openni2/lib/linux64
+    # ADDON_LDFLAGS = -L../../../addons/ofxOpenNI/libs/nite2/lib/linux64
+    # ADDON_LDFLAGS += -lOpenNI2
+    # ADDON_LDFLAGS += -lNiTE2
 
     ADDON_CFLAGS += -fpermissive
