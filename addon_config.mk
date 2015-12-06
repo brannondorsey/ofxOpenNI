@@ -17,8 +17,8 @@
 meta:
 	ADDON_NAME = ofxOpenNI
 	ADDON_DESCRIPTION = Addon for interfacing with microsoft kinect cameras
-	ADDON_AUTHOR = Dan Wilcox, Theo Watson, Kyle McDonald, Arturo Castro
-	ADDON_TAGS = "computer vision" "3D sensing" "kinect"
+	ADDON_AUTHOR = gameoverhack
+	ADDON_TAGS = "skeleton tracking" "kinect" "OpenNI2" "NiTE2"
 	ADDON_URL = http://github.com/brannondorsey/ofxOpenNI
 
 common:
@@ -88,6 +88,8 @@ linux64:
     # ADDON_INCLUDES_EXCLUDE += libs/libusb-win32/%
 	# ADDON_INCLUDES_EXCLUDE += libs/libusb-1.0/%
 	
+	# ADDON_DATA = ../../../addons/ofxOpenNI/libs/nite2/lib/linux64/NiTE2
+
 	# path must be relative to project
 	# ADDON_LDFLAGS += -l:../../../addons/ofxOpenNI/libs/openni2/lib/linux64/libOpenNI2.so
   	# ADDON_LDFLAGS += -l:../../../addons/ofxOpenNI/libs/nite2/lib/linux64/libNiTE2.so
